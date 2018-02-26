@@ -1,6 +1,6 @@
 <html>
 	<head>
-
+	</head>
 	<body>
 		<script>	
 			function neuron(weights, args){
@@ -32,7 +32,7 @@
 					input = prompt("Waga nr " + (i+1));
 					userWeighths.push(input)
 				}
-				neuron(userWeighths, userArgs);
+				alert("Final output is " + neuron(userWeighths, userArgs));
 			}
 			
 			console.log("Test bramek")
@@ -61,9 +61,6 @@
 			console.log("","Final output is " + neuron(weights, args));
 			
 			userInputted();
-
 		</script>
 	</body>
-	</head>
-
 </html>
