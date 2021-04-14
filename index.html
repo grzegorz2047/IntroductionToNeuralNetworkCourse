@@ -73,6 +73,7 @@
                 
                 let time = 1;
                 let counter = 0;
+		let t = 0;
                 while(counter != 5) {
                     
                     w[t + 1] = addToVector(w[t],  multiplyToVector(u[t], cIntense * (learnDecider(t) - neuron(w, u))));
