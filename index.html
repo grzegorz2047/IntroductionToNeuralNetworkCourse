@@ -4,121 +4,121 @@
 	<body>
 		<script>	
 		let w = [];	
-            function usePerceptron() {
-                perceptron(0.01);
-                
-            }
-            
-            function neuron(weights, args){
-				let sum = 0;
-				for(let i = 0; i < args.length; i++) {
-					let single = weights[i] * args[i];
-					sum += single;
-				
-				}
-				return decide(sum);
-			}
-			function decide(u) {
-				if(u >= 0) return 1; 
-				else return 0;
-			}
-			
-            
-            function perceptron (cIntense) { //u1-u5 liniowo niezależne
-                uall = [];
-                u1 =[
-                    0, 0, 0, 0, 0,
-                    0, 1, 1, 0, 0,
-                    0, 0, 1, 0, 0,
-                    0, 0, 1, 0, 0,
-                    0, 0, 1, 0, 0, 1
-                ];
-                u2 = [
-                    0, 0, 0, 0, 0,
-                    1, 1, 0, 0, 0,
-                    0, 1, 0, 0, 0,
-                    0, 1, 0, 0, 0,
-                    0, 1, 0, 0, 0, 1
-                ];     
-                u3 = [
-                    0, 0, 1, 1, 0,
-                    0, 0, 0, 1, 0,
-                    0, 0, 0, 1, 0,
-                    0, 0, 0, 0, 0,
-                    0, 0, 0, 0, 0, 1
-                ];
-                     
-                u4 = [
-                    0, 0, 0, 0, 0,
-                    0, 1, 1, 1, 0,
-                    0, 1, 0, 1, 0,
-                    0, 1, 1, 1, 0,
-                    0, 0, 0, 0, 0, 1
-                ];
-          
-                u5 = [
-                    0, 0, 0, 0, 0,
-                    0, 0, 0, 0, 0,
-                    1, 1, 1, 0, 0,
-                    1, 0, 1, 0, 0,
-                    1, 1, 1, 0, 0, 1
-                ];
+		    function usePerceptron() {
+			perceptron(0.01);
 
-                
-                uall.push(u1);
-                uall.push(u2);
-                uall.push(u3);
-                uall.push(u4);
-                uall.push(u5);
-                
-                let time = 1;
-                let counter = 0;
-		let t = 0;
-                while(counter != 5) {
-                    
-                    w[t + 1] = addToVector(w[t],  multiplyToVector(u[t], cIntense * (learnDecider(t) - neuron(w, u))));
-                    if(z[t] == neuron(w,u)) {
-                        counter += 1
-                    } else {
-                        counter = 0;
-                    }
-                    t = t + 1;
-                }
-                console.log("t = ");
-                console.log("w[t] = " + w);
-            }
-            
-            function learnAlgorithm(t, w, u) {
-                let z = learnDecider(t, w, u);
-                let y = neuron(w, u);
-                let imageSize = 26;
-                for(let j = 0; j < imageSize; j++) {
-                    w[j] = w[j] + c * (z-y) * u[1 + ((t-1) % 5)];
-                }
-                return w;
-            }
-            
-            function learnDecider(t) {//sygnal nauczyciela
-                if( (t-1) % 5 == 0 || (t-1) % 5 == 1 || (t-1) % 5 == 2) {
-                    return 1;
-                } else {
-                    return 0;
-                }
-            }
-            
-            function addToVector(vector, number) {
-                for(let i = 0; i < vector.length; i++) {
-					 vector[i] = vector[i] + number;
+		    }
+
+		    function neuron(weights, args){
+					let sum = 0;
+					for(let i = 0; i < args.length; i++) {
+						let single = weights[i] * args[i];
+						sum += single;
+
+					}
+					return decide(sum);
 				}
-                return vector;
-            }
-            function multiplyToVector(vector, number) {
-                
-                for(let i = 0; i < vector.length; i++) {
-					 vector[i] = vector[i] * number;
+				function decide(u) {
+					if(u >= 0) return 1; 
+					else return 0;
 				}
-                return vector;
-            }
+
+
+		    function perceptron (cIntense) { //u1-u5 liniowo niezależne
+			uall = [];
+			u1 =[
+			    0, 0, 0, 0, 0,
+			    0, 1, 1, 0, 0,
+			    0, 0, 1, 0, 0,
+			    0, 0, 1, 0, 0,
+			    0, 0, 1, 0, 0, 1
+			];
+			u2 = [
+			    0, 0, 0, 0, 0,
+			    1, 1, 0, 0, 0,
+			    0, 1, 0, 0, 0,
+			    0, 1, 0, 0, 0,
+			    0, 1, 0, 0, 0, 1
+			];     
+			u3 = [
+			    0, 0, 1, 1, 0,
+			    0, 0, 0, 1, 0,
+			    0, 0, 0, 1, 0,
+			    0, 0, 0, 0, 0,
+			    0, 0, 0, 0, 0, 1
+			];
+
+			u4 = [
+			    0, 0, 0, 0, 0,
+			    0, 1, 1, 1, 0,
+			    0, 1, 0, 1, 0,
+			    0, 1, 1, 1, 0,
+			    0, 0, 0, 0, 0, 1
+			];
+
+			u5 = [
+			    0, 0, 0, 0, 0,
+			    0, 0, 0, 0, 0,
+			    1, 1, 1, 0, 0,
+			    1, 0, 1, 0, 0,
+			    1, 1, 1, 0, 0, 1
+			];
+
+
+			uall.push(u1);
+			uall.push(u2);
+			uall.push(u3);
+			uall.push(u4);
+			uall.push(u5);
+
+			let time = 1;
+			let counter = 0;
+			let t = 0;
+			while(counter != 5) {
+
+			    w[t + 1] = addToVector(w[t],  multiplyToVector(uall[t], cIntense * (learnDecider(t) - neuron(w, uall))));
+			    if(z[t] == neuron(w,uall)) {
+				counter += 1
+			    } else {
+				counter = 0;
+			    }
+			    t = t + 1;
+			}
+			console.log("t = ");
+			console.log("w[t] = " + w);
+		    }
+
+		    function learnAlgorithm(t, w, u) {
+			let z = learnDecider(t, w, u);
+			let y = neuron(w, u);
+			let imageSize = 26;
+			for(let j = 0; j < imageSize; j++) {
+			    w[j] = w[j] + c * (z-y) * u[1 + ((t-1) % 5)];
+			}
+			return w;
+		    }
+
+		    function learnDecider(t) {//sygnal nauczyciela
+			if( (t-1) % 5 == 0 || (t-1) % 5 == 1 || (t-1) % 5 == 2) {
+			    return 1;
+			} else {
+			    return 0;
+			}
+		    }
+
+		    function addToVector(vector, number) {
+			for(let i = 0; i < vector.length; i++) {
+						 vector[i] = vector[i] + number;
+					}
+			return vector;
+		    }
+		    function multiplyToVector(vector, number) {
+
+			for(let i = 0; i < vector.length; i++) {
+						 vector[i] = vector[i] * number;
+					}
+			return vector;
+		    }
             
 /*			function userInputted() {
 				let numberOfArgs = prompt("ile argumentow wejsciowych?");
